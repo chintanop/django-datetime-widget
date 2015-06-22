@@ -106,7 +106,7 @@ BOOTSTRAP_INPUT_TEMPLATE = {
            <span class="add-on"><i class="icon-th"></i></span>
        </div>
        <script type="text/javascript">
-           $("#%(id)s").datetimepicker({%(options)s});
+           $("#%(id)s").datepicker({%(options)s});
        </script>
        """,
     3: """
@@ -116,7 +116,7 @@ BOOTSTRAP_INPUT_TEMPLATE = {
            <span class="input-group-addon"><span class="glyphicon %(glyphicon)s"></span></span>
        </div>
        <script type="text/javascript">
-           $("#%(id)s").datetimepicker({%(options)s}).find('input').addClass("form-control");
+           $("#%(id)s").datepicker({%(options)s}).find('input').addClass("form-control");
        </script>
        """
        }
@@ -251,15 +251,15 @@ class PickerWidgetMixin(object):
 
     def _media(self):
 
-        js = ["js/bootstrap-datetimepicker.js"]
+        js = ["js/bootstrap-datepicker.js"]
 
         language = self.options.get('language', 'en')
         if language != 'en':
-            js.append("js/locales/bootstrap-datetimepicker.%s.js" % language)
+            js.append("js/locales/bootstrap-datepicker.%s.js" % language)
 
         return widgets.Media(
             css={
-                'all': ('css/datetimepicker.css',)
+                'all': ('css/datepicker.css',)
                 },
             js=js
             )
